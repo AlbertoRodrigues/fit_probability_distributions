@@ -11,22 +11,22 @@ Some of the most famous applications of probability are:
 
 For example, if we have the histogram of the height of a certain company:
 
-![]()
+![height](https://github.com/AlbertoRodrigues/fit_probability_distributions/blob/main/images/normal_ex1.jpeg)
 
 We may be interested in finding out whether a certain value is an outlier or not. In the case of the normal distribution, to consider whether an observation is an outlier or not, we can check whether the probability of that observed value happening is small enough. One possible choice is to measure whether this value is beyond the center of the data mass.
 
  In the normal distribution, if the value is greater than three standard deviations beyond the mean or less than minus three standard deviations from the mean, this value can be considered an outlier. This region has approximately 0.26% probability of happening, very small indeed. The figure below illustrates the shape of the normal distribution in relation to its standard deviation and probabilities:
 
-![]()
+![teoricnormal](https://github.com/AlbertoRodrigues/fit_probability_distributions/blob/main/images/normalteorica.png)
 
 We can adjust the normal distribution to see if it is a reasonable choice:
 
-![]()
+![fitnormal](https://github.com/AlbertoRodrigues/fit_probability_distributions/blob/main/images/normalajuste1.jpeg)
 
 It sounds like a proper fit. In this way, we can draw several important conclusions and interpretations of this variable. Let us carefully review some possibilities:
 
 1. Check whether the observed value of 1.97 is an outlier or not
-2. Calculate events of interest such as $$, $$, and $$
+2. Calculate events of interest such as $`\sqrt{2}`$
 3. Obtain confidence interval
 4. Obtain Hypothesis Tests
 
