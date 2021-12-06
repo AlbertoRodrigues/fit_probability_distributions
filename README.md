@@ -1,87 +1,34 @@
-# Introdução
+# How to use probabilistic models in practice?
 
-## O que é Visão Computacional?
+Frequently, we are interested in measuring the uncertainty of some event of interest. The most common measure for this type of goal is classical probability. Through it, we can say that for a given variable, the probability of a particular event happening is a number between 0 and 1.
 
-**Visão Computacional** é um campo dentro de Inteligência Artificial, no qual estamos interessados em realizar tarefas complexas a partir de **imagens**. Antes de explicarmos em detalhes sobre como as imagens funcionam, vamos falar sobre algumas das suas principais utilizações.
-Tais tarefas podem ser:
+Some of the most famous applications of probability are:
 
-1. **Reconhecimento facial**, que pode localizar na imagem onde está um rosto humano.
-2. **Classificação de imagens**, como predizer se uma imagem contém um cachorro ou gato, por exemplo.
-3. **Segmentação de imagens**, por exemplo, que pode separar em uma imagem de tomografia a localização do pulmão e do que não é pulmão.
-4. **Detecção de Veículos**, como detectar carros que cometeram infrações no trânsito.
+1. Prediction in a Classification Model (Logistic Regression, Decision Tree)
+2. Outlier detection
+3. Measurement of an event of interest
+4. Greater interpretability of some observed variable
 
-## Reconhecimento facial
-Um **sistema de reconhecimento facial** é uma técnica de visão computacional que tem como objetivo reconhecer e localizar o padrão característico facial em uma imagem utilizando algum algoritmo.
+For example, if we have the histogram of the height of a certain company:
 
-![1](https://github.com/turing-usp/Visao-Computacional/blob/intro/images/reconhecimento_facial.png)
+![]()
 
-## Classificação de imagens
-Técnica de aprendizagem de máquina onde estamos interessados em classificar se determinada classe utilizando imagens.
+We may be interested in finding out whether a certain value is an outlier or not. In the case of the normal distribution, to consider whether an observation is an outlier or not, we can check whether the probability of that observed value happening is small enough. One possible choice is to measure whether this value is beyond the center of the data mass.
 
-![2](https://github.com/turing-usp/Visao-Computacional/blob/intro/images/classificacao.jpg)
+ In the normal distribution, if the value is greater than three standard deviations beyond the mean or less than minus three standard deviations from the mean, this value can be considered an outlier. This region has approximately 0.26% probability of happening, very small indeed. The figure below illustrates the shape of the normal distribution in relation to its standard deviation and probabilities:
 
-## Segmentação de imagens
-**Segmentação** é o processo de dividir uma imagem em regiões, com o objetivo de simplificar e/ou mudar a representação de uma imagem para facilitar a sua análise.
+![]()
 
-![3](https://github.com/turing-usp/Visao-Computacional/blob/intro/images/segmentacao.jpg)
+We can adjust the normal distribution to see if it is a reasonable choice:
 
-## Detecção de imagens
-**Detecção de imagens** é o procedimento onde detectamos e localizamos determinado objeto em uma imagem.
+![]()
 
-![4](https://github.com/turing-usp/Visao-Computacional/blob/intro/images/deteccao.png)
+It sounds like a proper fit. In this way, we can draw several important conclusions and interpretations of this variable. Let us carefully review some possibilities:
 
-### Observação
-Muitas pessoas se confundem detecção e classificação, pois os resultados finais são parecidos. Porém, na tarefa de classificação apenas é dada uma **classe** para a imagem, enquanto que em detecção o objeto é **localizado** na imagem.
+1. Check whether the observed value of 1.97 is an outlier or not
+2. Calculate events of interest such as $$, $$, and $$
+3. Obtain confidence interval
+4. Obtain Hypothesis Tests
 
-![5](https://github.com/turing-usp/Visao-Computacional/blob/intro/images/diff_deteccao_classificacao.jpg)
-
-## Fundamentos de imagens
-A forma mais simples de uma **imagem** é basicamente uma matriz, com um número de linhas e número de colunas que definem o tamanho da imagem. Cada elemento da matriz é chamada de **pixel**, que possui uma “cor”.
-
-Na sua forma mais básica, a cor de um pixel pode ser representado por 1 bit. O bit com o valor 1 indica que o pixel representa a cor “branco”. O bit com o valor 0 indica que o pixel representa a cor “preto”. **Imagens binárias** são aquelas em que cada pixel é branco ou preto.
-Por exemplo, a matriz:
-
-![a](https://github.com/turing-usp/Visao-Computacional/blob/intro/images/matrixex.png)
-
-representa a seguinte imagem:
-
-![a](https://github.com/turing-usp/Visao-Computacional/blob/intro/images/imgbinaria1.png)
-
-Outro exemplo seria o logo da USP:
-
-![b](https://github.com/turing-usp/Visao-Computacional/blob/intro/images/usplogo2.png)
-
-Em geral, os níveis, 0 e 1 são **insuficientes** para representarmos o que costumamos chamar de imagens em preto e branco, pois em geral as imagens possuem **vários** níveis de cinza. Uma forma tradicional de representar uma imagem com vários tons de cinza é reservando um byte para cada pixel. Um byte consiste de 8 bits representando um valor entre 0 e 255. Portanto, temos muitos mais possibilidades de representar nossa imagem adequadamente.
-
-![7](https://github.com/turing-usp/Visao-Computacional/blob/intro/images/cinza1.png)
-
-![8](https://github.com/turing-usp/Visao-Computacional/blob/intro/images/cinza2.png)
-
-Com um byte por pixel podemos representar imagens com até **256 níveis de cinza**. Chamamos as imagens em que cada pixel pode ter vários tons de cinza de imagens com **níveis de cinza** (grayscale).
-
-![9](https://github.com/turing-usp/Visao-Computacional/blob/intro/images/cinza3.jpg)
-
-Que representa a seguinte matriz:
-
-![1](https://github.com/turing-usp/Visao-Computacional/blob/intro/images/cinza3_array.png)
-
-Uma imagem com níveis de cinza nos permite ver as variações de luminosidade da cena. Já uma **imagem colorida** requer ainda mais informação para cada pixel. Baseado no sentido da visão humana, que é **tricromática**, a representação de imagens mais comum é obtida decompondo uma cor nas componentes básicas **vermelho** (red), **verde** (green), e **azul** (blue) ou **RGB**. Assim, usando um total de três bytes: um byte para níveis de vermelho; um byte para níveis de verde e um byte para níveis de azul, podemos representar aproximadamente todas as cores.
-
-![10](https://github.com/turing-usp/Visao-Computacional/blob/intro/images/imgcolorida.jpg)
-
-Os canais de cores de uma imagem colorida são representados por três matrizes. Nesse exemplo, as matrizes são:
-
-![1](https://github.com/turing-usp/Visao-Computacional/blob/intro/images/imgcolorida_array.png)
-
-## Veja os conceitos matriciais apresentados neste [notebook em python](https://github.com/turing-usp/Visao-Computacional/blob/intro/Introdu%C3%A7%C3%A3o/Introdu%C3%A7%C3%A3o.ipynb)
-
-### Links introdutórios:
- 
-1. [Turing Talks - Introdução à Visão Computacional](https://medium.com/turing-talks/introdu%C3%A7%C3%A3o-%C3%A0-vis%C3%A3o-computacional-b13698774adc)  
-2. [Processamento de imagens](https://www.youtube.com/playlist?list=PL5TJqBvpXQv54i_HWjd7s70vbP4Is7sK_)    
-3. [Documentação da biblioteca OpenCV](https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_tutorials.html)    
-
-
-
-
-
+In other situations, a more skewed probability distribution may better fit some variables of interest.
+To illustrate, imagine that we are studying employees' salary at a company suspected of corruption. The histogram of this variable is given below:

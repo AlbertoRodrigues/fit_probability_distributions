@@ -135,4 +135,13 @@ ajuste(x,3)
 ajuste(x,4)
 ajuste(x,5)
 
+x=rnorm(500,1.71,0.08)
+dist5=fitdist(x,"norm")
+est5= dist5$estimate
+(ggplot(data.frame(x),aes(x))+geom_histogram(fill="#00AFBB",color="black")+
+theme_test())
 
+(ggplot(data.frame(x),aes(x))
+  +geom_histogram(aes(y =..density..),fill="#00AFBB",color="black")
+  +stat_function(fun = dnorm, args = list( est5[1], est5[2]),aes(fill="black"),size=1.2)
+  +labs(title="Normal distribution")+theme_test())
