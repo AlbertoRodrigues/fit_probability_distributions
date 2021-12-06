@@ -26,7 +26,7 @@ We can adjust the normal distribution to see if it is a reasonable choice:
 It sounds like a proper fit. In this way, we can draw several important conclusions and interpretations of this variable. Let us carefully review some possibilities:
 
 1. Check whether the observed value of 1.97 is an outlier or not
-2. Calculate events of interest such as $`\sqrt{2}`$
+2. Calculate events of interest such as ![equation](https://latex.codecogs.com/gif.latex?\mathbb{P}(X>1.9))
 3. Obtain confidence interval
 4. Obtain Hypothesis Tests
 
