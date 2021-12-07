@@ -135,6 +135,7 @@ ajuste(x,3)
 ajuste(x,4)
 ajuste(x,5)
 
+set.seed(7)
 x=rnorm(500,1.71,0.08)
 dist5=fitdist(x,"norm")
 est5= dist5$estimate
@@ -145,3 +146,21 @@ theme_test())
   +geom_histogram(aes(y =..density..),fill="#00AFBB",color="black")
   +stat_function(fun = dnorm, args = list( est5[1], est5[2]),aes(fill="black"),size=1.2)
   +labs(title="Normal distribution")+theme_test())
+
+
+
+#Probabilidade maior que 1.87
+(ggplot(data.frame(x),aes(x))
+  +stat_function(fun = dnorm, args = list( est5[1], est5[2]),aes(fill="black"),size=1.2)
+  +scale_x_continuous(limits = c(min(x), max(x)), breaks = 1.87)
+  +labs(title="Normal distribution")+theme_test())
+
+1-pnorm(1.87,est5[1],est5[2])
+
+#Probabilidade maior que 1.8
+(ggplot(data.frame(x),aes(x))
+  +stat_function(fun = dnorm, args = list( est5[1], est5[2]),aes(fill="black"),size=1.2)
+  +scale_x_continuous(limits = c(min(x), max(x)), breaks = 1.8)
+  +labs(title="Normal distribution")+theme_test())
+
+1-pnorm(1.8,est5[1],est5[2])
