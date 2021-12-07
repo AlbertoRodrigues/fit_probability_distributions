@@ -9,7 +9,7 @@ Some of the most famous applications of probability are:
 3. Measurement of an event of interest
 4. Greater interpretability of some observed variable
 
-For example, if we have the histogram of the height of a certain company:
+For example, if we have the histogram of the height of the employees from a certain company:
 
 ![height](https://github.com/AlbertoRodrigues/fit_probability_distributions/blob/main/images/normal_ex1.jpeg)
 
@@ -19,7 +19,7 @@ We may be interested to find whether a certain value is an outlier or not. In th
 
 ![teoricnormal](https://github.com/AlbertoRodrigues/fit_probability_distributions/blob/main/images/normalteorica.png)
 
-We can adjust the normal distribution to see if it is a reasonable choice:
+We can fit the normal distribution to see if it is a reasonable choice:
 
 ![fitnormal](https://github.com/AlbertoRodrigues/fit_probability_distributions/blob/main/images/normalajuste1.jpeg)
 
@@ -42,7 +42,7 @@ This is exactly the equivalent of calculating the following area:
 
 As the probability of this event is greater than 0.00013, we can consider it to be a typical value of the dataset.
 
-## Measurement of some events of interest
+## Some events of interest
 
 Now, let us calculate some events of interest through probability:
 
@@ -56,7 +56,21 @@ These probabilities are calculated from the following areas, respectively:
 
 ![prob](https://github.com/AlbertoRodrigues/fit_probability_distributions/blob/main/images/prob158172.jpg)
 
+## Confidence Interval
 
+If the distribution is normal, we can get the confidence intervals of the parameters. Thus, we can get a better idea of ​​the interval estimation and draw conclusions about the variability of the estimates, thus drawing more reliable conclusions for our results.
+
+https://latex.codecogs.com/gif.latex?CI(\mu)_{\alpha}=\left[\bar{x}&space;\pm&space;t_{n-1}^{\left(\ frac{1&plus;\alpha}{2}\right)}\dfrac{s}{\sqrt{n}}&space;\right&space;]=[1.7133,&space;1.7139]
+
+In our case, we obtain a confidence interval for the population mean very accurately, with almost no variability.
+
+## Asymmetric probabilistic models
 
 In other situations, a more skewed probability distribution may better fit some variables of interest.
 To illustrate, imagine that we are studying employees' salary at a company suspected of corruption. The histogram of this variable is given below:
+
+![salary](https://github.com/AlbertoRodrigues/fit_probability_distributions/blob/main/images/exp_ex1.jpeg)
+
+The histogram suggests an asymmetric distribution, an option would be the exponential distribution, the fit and given below:
+
+![fit](https://github.com/AlbertoRodrigues/fit_probability_distributions/blob/main/images/exp_ajuste1.jpeg)

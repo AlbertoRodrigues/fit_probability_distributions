@@ -164,3 +164,41 @@ theme_test())
   +labs(title="Normal distribution")+theme_test())
 
 1-pnorm(1.8,est5[1],est5[2])
+
+#Probabilidade menor que 1.63
+(ggplot(data.frame(x),aes(x))
+  +stat_function(fun = dnorm, args = list( est5[1], est5[2]),aes(fill="black"),size=1.2)
+  +scale_x_continuous(limits = c(min(x), max(x)), breaks = 1.63)
+  +labs(title="Normal distribution")+theme_test())
+
+pnorm(1.63,est5[1],est5[2])
+
+#Probabilidade menor que 1.63
+(ggplot(data.frame(x),aes(x))
+  +stat_function(fun = dnorm, args = list( est5[1], est5[2]),aes(fill="black"),size=1.2)
+  +scale_x_continuous(limits = c(min(x), max(x)), breaks = c(1.58, 1.72))
+  +labs(title="Normal distribution")+theme_test())
+
+
+pnorm(1.72,est5[1],est5[2])-pnorm(1.58,est5[1],est5[2])
+
+#Intervalo de confiança
+quantil=qt((1+0.95)/2,length(x)-1)
+c(mean(x)-quantil*sd(x)/(length(x)-1), mean(x)+quantil*sd(x)/(length(x)-1))
+
+
+
+#Distribuição exponencial
+set.seed(7)
+1/0.0005
+x=rexp(500,0.005)
+dist5=fitdist(x,"exp")
+est5= dist5$estimate
+(ggplot(data.frame(x),aes(x))+geom_histogram(fill="#00AFBB",color="black")+
+    theme_test())
+
+(ggplot(data.frame(x),aes(x))
+  +geom_histogram(aes(y =..density..),fill="#00AFBB",color="black")
+  +stat_function(fun = dexp, args = list( est5[1]),aes(fill="black"),size=1.2)
+  +labs(title="Exponential distribution")+theme_test())
+
