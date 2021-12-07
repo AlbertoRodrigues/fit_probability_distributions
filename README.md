@@ -34,7 +34,7 @@ It sounds like a proper fit. In this way, we can take several important conclusi
 
 Let us calculate the probability that 1.87 is extreme. As it deals with continuous variable, we can calculate this probability through the integral in the desired interval, given by:
 
-![equation](https://latex.codecogs.com/gif.latex?\mathbb{P}(X>1.87)=\int_{1.87}^{\infty}\dfrac{1}{\hat{\sigma}\sqrt{ 2\pi}}e^{\dfrac{(x-\hat{\mu})^2}{2\hat{\sigma^2}}}dx&space;\approx&space;0.025)
+![prob](https://github.com/AlbertoRodrigues/fit_probability_distributions/blob/main/images/prob1.gif)
 
 This is exactly the equivalent of calculating the following area:
 
@@ -46,7 +46,7 @@ As the probability of this event is greater than 0.00013, we can consider it to 
 
 Now, let us calculate some events of interest through probability:
 
-![equation](https://latex.codecogs.com/gif.latex?\mathbb{P}(X>1.8)=\int_{1.8}^{\infty}\dfrac{1}{\hat{\sigma}\sqrt{ 2\pi}}e^{\dfrac{(x-\hat{\mu})^2}{2\hat{\sigma^2}}}dx&space;\approx&space;0.14\\&space;\mathbb{P }(X<1.63)=\int_{-\infty}^{1.63}\dfrac{1}{\hat{\sigma}\sqrt{2\pi}}e^{\dfrac{(x-\hat{ \mu})^2}{2\hat{\sigma^2}}}dx&space;\aprox&space;0.15\\&space;\mathbb{P}(1.58<X<1.72)=\int_{1.58}^{1.72 }\dfrac{1}{\hat{\sigma}\sqrt{2\pi}}e^{\dfrac{(x-\hat{\mu})^2}{2\hat{\sigma^2} }}dx&space;\approx&space;0.48)
+![prob](https://github.com/AlbertoRodrigues/fit_probability_distributions/blob/main/images/prob2.gif)
 
 These probabilities are calculated from the following areas, respectively:
 
