@@ -60,7 +60,7 @@ These probabilities are calculated from the following areas, respectively:
 
 If the distribution is normal, we can get the confidence intervals of the parameters. Thus, we can get a better idea of ​​the interval estimation and draw conclusions about the variability of the estimates, thus drawing more reliable conclusions for our results.
 
-https://latex.codecogs.com/gif.latex?CI(\mu)_{\alpha}=\left[\bar{x}&space;\pm&space;t_{n-1}^{\left(\ frac{1&plus;\alpha}{2}\right)}\dfrac{s}{\sqrt{n}}&space;\right&space;]=[1.7133,&space;1.7139]
+![equation](https://latex.codecogs.com/gif.latex?CI(\mu)_{\alpha}=\left[\bar{x}&space;\pm&space;t_{n-1}^{\left(\ frac{1&plus;\alpha}{2}\right)}\dfrac{s}{\sqrt{n}}&space;\right&space;]=[1.7133,&space;1.7139])
 
 In our case, we obtain a confidence interval for the population mean very accurately, with almost no variability.
 

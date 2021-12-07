@@ -190,8 +190,9 @@ c(mean(x)-quantil*sd(x)/(length(x)-1), mean(x)+quantil*sd(x)/(length(x)-1))
 
 #Distribuição exponencial
 set.seed(7)
-1/0.0005
-x=rexp(500,0.005)
+
+1/2.5
+x=rexp(500,0.4)
 dist5=fitdist(x,"exp")
 est5= dist5$estimate
 (ggplot(data.frame(x),aes(x))+geom_histogram(fill="#00AFBB",color="black")+
